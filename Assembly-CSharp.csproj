@@ -12,7 +12,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{e6bdc332-25e1-2831-82c1-25d0441455a3}</ProjectGuid>
+    <ProjectGuid>{80d8fc5b-3ece-bb36-d96c-8469b587cbb3}</ProjectGuid>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -41,34 +41,35 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets/Scripts/ChessPieces/King.cs" />
-     <Compile Include="Assets/Scripts/ChessPieces/Queen.cs" />
-     <Compile Include="Assets/Scripts/ChessPieces/Knight.cs" />
-     <Compile Include="Assets/Scripts/ChessPieces/Pawn.cs" />
-     <Compile Include="Assets/Scripts/ChessPieces/Bishop.cs" />
-     <Compile Include="Assets/Scripts/ChessPieces/Rook.cs" />
      <Compile Include="Assets/Scripts/Board/Board.cs" />
-     <Compile Include="Assets/Scripts/Board/BoardController.cs" />
-     <Compile Include="Assets/Scripts/Piece.cs" />
-     <Compile Include="Assets/Scripts/InputSystem/AudioInputHandler.cs" />
      <Compile Include="Assets/Scripts/InputSystem/InputReceiver.cs" />
-     <Compile Include="Assets/Scripts/InputSystem/IInputHandler.cs" />
-     <Compile Include="Assets/Scripts/InputSystem/BoardInputHandler.cs" />
-     <Compile Include="Assets/Scripts/InputSystem/ColliderInputReceiver.cs" />
-     <Compile Include="Assets/Scripts/InputSystem/UIInputHandler.cs" />
+     <Compile Include="Assets/Scripts/ChessPieces/Knight.cs" />
      <Compile Include="Assets/Scripts/InputSystem/UIInputReceiver.cs" />
-     <Compile Include="Assets/Scripts/InputSystem/DebugInputHandler.cs" />
-     <Compile Include="Assets/Scripts/PiecesCreator.cs" />
+     <Compile Include="Assets/Scripts/InputSystem/UIInputHandler.cs" />
+     <Compile Include="Assets/Scripts/InputSystem/IInputHandler.cs" />
+     <Compile Include="Assets/Scripts/ChessPieces/Queen.cs" />
+     <Compile Include="Assets/Scripts/InputSystem/ColliderInputReceiver.cs" />
+     <Compile Include="Assets/Scripts/ChessPieces/Bishop.cs" />
+     <Compile Include="Assets/Scripts/MaterialSetter.cs" />
+     <Compile Include="Assets/Scripts/Piece.cs" />
      <Compile Include="Assets/Scripts/ChessPlayer.cs" />
-     <Compile Include="Assets/Scripts/SquareSelectorCreator.cs" />
+     <Compile Include="Assets/Scripts/InputSystem/AudioInputHandler.cs" />
      <Compile Include="Assets/Scripts/Movement/InstantTweener.cs" />
      <Compile Include="Assets/Scripts/Movement/LineTweener.cs" />
-     <Compile Include="Assets/Scripts/Movement/IObjectTweener.cs" />
-     <Compile Include="Assets/Scripts/Movement/ArcTweener.cs" />
-     <Compile Include="Assets/Scripts/MaterialSetter.cs" />
+     <Compile Include="Assets/Scripts/ChessPieces/Pawn.cs" />
+     <Compile Include="Assets/Scripts/ChessPieces/King.cs" />
+     <Compile Include="Assets/Scripts/Enum/PieceType.cs" />
+     <Compile Include="Assets/Scripts/ChessPieces/Rook.cs" />
+     <Compile Include="Assets/Scripts/Board/BoardController.cs" />
      <Compile Include="Assets/Scripts/UIButton.cs" />
      <Compile Include="Assets/Scripts/Enum/TeamColor.cs" />
-     <Compile Include="Assets/Scripts/Enum/PieceType.cs" />
+     <Compile Include="Assets/Scripts/Movement/IObjectTweener.cs" />
+     <Compile Include="Assets/Scripts/InputSystem/BoardInputHandler.cs" />
+     <Compile Include="Assets/Scripts/PiecesCreator.cs" />
+     <Compile Include="Assets/Scripts/SquareSelectorCreator.cs" />
+     <Compile Include="Assets/Scripts/Movement/ArcTweener.cs" />
+     <Compile Include="Assets/Scripts/InputSystem/DebugInputHandler.cs" />
+     <Compile Include="Assets/Scripts/ChessGameController.cs" />
      <Reference Include="UnityEngine">
      <HintPath>/Applications/Unity/Hub/Editor/2021.3.4f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
      </Reference>
@@ -313,13 +314,13 @@
      <HintPath>/Applications/Unity/Hub/Editor/2021.3.4f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.UnityConnectModule.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-     <HintPath>/Users/adarsh/My project/Library/PackageCache/com.unity.visualscripting@1.7.8/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+     <HintPath>/Users/adarsh/Chess-Multiplayer/Library/PackageCache/com.unity.visualscripting@1.7.8/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="ReportGeneratorMerged">
-     <HintPath>/Users/adarsh/My project/Library/PackageCache/com.unity.testtools.codecoverage@1.0.1/lib/ReportGenerator/ReportGeneratorMerged.dll</HintPath>
+     <HintPath>/Users/adarsh/Chess-Multiplayer/Library/PackageCache/com.unity.testtools.codecoverage@1.0.1/lib/ReportGenerator/ReportGeneratorMerged.dll</HintPath>
      </Reference>
      <Reference Include="Newtonsoft.Json">
-     <HintPath>/Users/adarsh/My project/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/Newtonsoft.Json.dll</HintPath>
+     <HintPath>/Users/adarsh/Chess-Multiplayer/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/Newtonsoft.Json.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Android.Types">
      <HintPath>/Applications/Unity/Hub/Editor/2021.3.4f1/PlaybackEngines/AndroidPlayer/Unity.Android.Types.dll</HintPath>
@@ -694,82 +695,82 @@
      <HintPath>/Applications/Unity/Hub/Editor/2021.3.4f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/mscorlib.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Flow.Editor">
-     <HintPath>/Users/adarsh/My project/Library/ScriptAssemblies/Unity.VisualScripting.Flow.Editor.dll</HintPath>
+     <HintPath>/Users/adarsh/Chess-Multiplayer/Library/ScriptAssemblies/Unity.VisualScripting.Flow.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VSCode.Editor">
-     <HintPath>/Users/adarsh/My project/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+     <HintPath>/Users/adarsh/Chess-Multiplayer/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TextMeshPro.Editor">
-     <HintPath>/Users/adarsh/My project/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+     <HintPath>/Users/adarsh/Chess-Multiplayer/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Performance.Profile-Analyzer.Editor">
-     <HintPath>/Users/adarsh/My project/Library/ScriptAssemblies/Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
+     <HintPath>/Users/adarsh/Chess-Multiplayer/Library/ScriptAssemblies/Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
-     <HintPath>/Users/adarsh/My project/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
+     <HintPath>/Users/adarsh/Chess-Multiplayer/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualStudio.Editor">
-     <HintPath>/Users/adarsh/My project/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+     <HintPath>/Users/adarsh/Chess-Multiplayer/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Timeline">
-     <HintPath>/Users/adarsh/My project/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+     <HintPath>/Users/adarsh/Chess-Multiplayer/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Core.Editor">
-     <HintPath>/Users/adarsh/My project/Library/ScriptAssemblies/Unity.VisualScripting.Core.Editor.dll</HintPath>
+     <HintPath>/Users/adarsh/Chess-Multiplayer/Library/ScriptAssemblies/Unity.VisualScripting.Core.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TextMeshPro">
-     <HintPath>/Users/adarsh/My project/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+     <HintPath>/Users/adarsh/Chess-Multiplayer/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.State.Editor">
-     <HintPath>/Users/adarsh/My project/Library/ScriptAssemblies/Unity.VisualScripting.State.Editor.dll</HintPath>
+     <HintPath>/Users/adarsh/Chess-Multiplayer/Library/ScriptAssemblies/Unity.VisualScripting.State.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
-     <HintPath>/Users/adarsh/My project/Library/ScriptAssemblies/Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
+     <HintPath>/Users/adarsh/Chess-Multiplayer/Library/ScriptAssemblies/Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
-     <HintPath>/Users/adarsh/My project/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
+     <HintPath>/Users/adarsh/Chess-Multiplayer/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Flow">
-     <HintPath>/Users/adarsh/My project/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll</HintPath>
+     <HintPath>/Users/adarsh/Chess-Multiplayer/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor.UI">
-     <HintPath>/Users/adarsh/My project/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+     <HintPath>/Users/adarsh/Chess-Multiplayer/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
      </Reference>
      <Reference Include="Unity.PlasticSCM.Editor">
-     <HintPath>/Users/adarsh/My project/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
+     <HintPath>/Users/adarsh/Chess-Multiplayer/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Rider.Editor">
-     <HintPath>/Users/adarsh/My project/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+     <HintPath>/Users/adarsh/Chess-Multiplayer/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.UI">
-     <HintPath>/Users/adarsh/My project/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+     <HintPath>/Users/adarsh/Chess-Multiplayer/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Services.Core">
-     <HintPath>/Users/adarsh/My project/Library/ScriptAssemblies/Unity.Services.Core.dll</HintPath>
+     <HintPath>/Users/adarsh/Chess-Multiplayer/Library/ScriptAssemblies/Unity.Services.Core.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Core">
-     <HintPath>/Users/adarsh/My project/Library/ScriptAssemblies/Unity.VisualScripting.Core.dll</HintPath>
+     <HintPath>/Users/adarsh/Chess-Multiplayer/Library/ScriptAssemblies/Unity.VisualScripting.Core.dll</HintPath>
      </Reference>
      <Reference Include="Unity.EditorCoroutines.Editor">
-     <HintPath>/Users/adarsh/My project/Library/ScriptAssemblies/Unity.EditorCoroutines.Editor.dll</HintPath>
+     <HintPath>/Users/adarsh/Chess-Multiplayer/Library/ScriptAssemblies/Unity.EditorCoroutines.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Services.Core.Analytics">
-     <HintPath>/Users/adarsh/My project/Library/ScriptAssemblies/Unity.Services.Core.Analytics.dll</HintPath>
+     <HintPath>/Users/adarsh/Chess-Multiplayer/Library/ScriptAssemblies/Unity.Services.Core.Analytics.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Shared.Editor">
-     <HintPath>/Users/adarsh/My project/Library/ScriptAssemblies/Unity.VisualScripting.Shared.Editor.dll</HintPath>
+     <HintPath>/Users/adarsh/Chess-Multiplayer/Library/ScriptAssemblies/Unity.VisualScripting.Shared.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Services.Core.Environments">
-     <HintPath>/Users/adarsh/My project/Library/ScriptAssemblies/Unity.Services.Core.Environments.dll</HintPath>
+     <HintPath>/Users/adarsh/Chess-Multiplayer/Library/ScriptAssemblies/Unity.Services.Core.Environments.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Timeline.Editor">
-     <HintPath>/Users/adarsh/My project/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+     <HintPath>/Users/adarsh/Chess-Multiplayer/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TestTools.CodeCoverage.Editor">
-     <HintPath>/Users/adarsh/My project/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
+     <HintPath>/Users/adarsh/Chess-Multiplayer/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.State">
-     <HintPath>/Users/adarsh/My project/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
+     <HintPath>/Users/adarsh/Chess-Multiplayer/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
      </Reference>
   </ItemGroup>
   <ItemGroup>
