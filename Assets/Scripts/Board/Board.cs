@@ -27,7 +27,9 @@ public class Board : MonoBehaviour
     {
         this.chessController = chessController;
     }
-    
+
+
+
     private void CreateGrid()
     {
         grid = new Piece[BOARD_SIZE, BOARD_SIZE];
@@ -69,6 +71,7 @@ public class Board : MonoBehaviour
 
     private void SelectPiece(Piece piece)
     {
+        chessController.RemoveMovesEnablingAttakOnPieceOfType<King>(piece);
         selectedPiece = piece;
         List<Vector2Int> selection = selectedPiece.avaliableMoves;
         ShowSelectionSquares(selection);
@@ -93,6 +96,7 @@ public class Board : MonoBehaviour
     }
     private void OnSelectedPieceMoved(Vector2Int coords, Piece piece)
     {
+        TryToTakeOppositePiece(coords);
         UpdateBoardOnPieceMove(coords, piece.occupiedSquare, piece, null);
         selectedPiece.MovePiece(coords);
         DeselectPiece();
@@ -104,7 +108,7 @@ public class Board : MonoBehaviour
         chessController.EndTurn();
     }
 
-    private void UpdateBoardOnPieceMove(Vector2Int newCoords, Vector2Int oldCoords, Piece newPiece, Piece oldPiece)
+    public void UpdateBoardOnPieceMove(Vector2Int newCoords, Vector2Int oldCoords, Piece newPiece, Piece oldPiece)
     {
         grid[oldCoords.x, oldCoords.y] = oldPiece;
         grid[newCoords.x, newCoords.y] = newPiece;
@@ -141,6 +145,38 @@ public class Board : MonoBehaviour
     {
         if (CheckIfCoordinatesAreOnBoard(coords))
             grid[coords.x, coords.y] = piece;
+    }
+
+    private void TryToTakeOppositePiece(Vector2Int coords)
+    {
+        Piece piece = GetPieceOnSquare(coords);
+        if (piece && !selectedPiece.IsFromSameTeam(piece))
+        {
+            TakePiece(piece);
+        }
+    }
+
+    private void TakePiece(Piece piece)
+    {
+        if (piece)
+        {
+            grid[piece.occupiedSquare.x, piece.occupiedSquare.y] = null;
+            chessController.OnPieceRemoved(piece);
+            Destroy(piece.gameObject);
+        }
+    }
+
+
+    public void PromotePiece(Piece piece)
+    {
+        TakePiece(piece);
+        chessController.CreatePieceAndInitialize(piece.occupiedSquare, piece.team, typeof(Queen));
+    }
+
+    internal void OnGameRestarted()
+    {
+        selectedPiece = null;
+        CreateGrid();
     }
 
 }

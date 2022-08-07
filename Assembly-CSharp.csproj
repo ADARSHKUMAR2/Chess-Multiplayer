@@ -42,9 +42,9 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets/Scripts/Board/Board.cs" />
-     <Compile Include="Assets/Scripts/InputSystem/InputReceiver.cs" />
+     <Compile Include="Assets/Scripts/InputSystem/InputReciever.cs" />
      <Compile Include="Assets/Scripts/ChessPieces/Knight.cs" />
-     <Compile Include="Assets/Scripts/InputSystem/UIInputReceiver.cs" />
+     <Compile Include="Assets/Scripts/InputSystem/UIInputReciever.cs" />
      <Compile Include="Assets/Scripts/InputSystem/UIInputHandler.cs" />
      <Compile Include="Assets/Scripts/InputSystem/IInputHandler.cs" />
      <Compile Include="Assets/Scripts/ChessPieces/Queen.cs" />
@@ -70,6 +70,29 @@
      <Compile Include="Assets/Scripts/Movement/ArcTweener.cs" />
      <Compile Include="Assets/Scripts/InputSystem/DebugInputHandler.cs" />
      <Compile Include="Assets/Scripts/ChessGameController.cs" />
+     <Compile Include="Assets/Scripts/ChessUIManager.cs" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" />
+     <None Include="Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF.shader" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader" />
+     <None Include="Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc" />
+     <None Include="Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader" />
+     <None Include="Assets/TextMesh Pro/Fonts/LiberationSans - OFL.txt" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader" />
+     <None Include="Assets/TextMesh Pro/Sprites/EmojiOne.json" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMP_Sprite.shader" />
      <Reference Include="UnityEngine">
      <HintPath>/Applications/Unity/Hub/Editor/2021.3.4f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
      </Reference>
@@ -321,6 +344,9 @@
      </Reference>
      <Reference Include="Newtonsoft.Json">
      <HintPath>/Users/adarsh/Chess-Multiplayer/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/Newtonsoft.Json.dll</HintPath>
+     </Reference>
+     <Reference Include="DOTween">
+     <HintPath>/Users/adarsh/Chess-Multiplayer/Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Android.Types">
      <HintPath>/Applications/Unity/Hub/Editor/2021.3.4f1/PlaybackEngines/AndroidPlayer/Unity.Android.Types.dll</HintPath>
@@ -774,6 +800,10 @@
      </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{b8ff9c34-1d6c-c8ba-a299-307b171566d1}</Project>
+      <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
