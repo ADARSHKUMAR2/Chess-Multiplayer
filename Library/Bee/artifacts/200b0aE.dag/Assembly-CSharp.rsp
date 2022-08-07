@@ -364,7 +364,7 @@
 "Assets/Scripts/Enum/TeamColor.cs"
 "Assets/Scripts/InputSystem/AudioInputHandler.cs"
 "Assets/Scripts/InputSystem/BoardInputHandler.cs"
-"Assets/Scripts/InputSystem/ColliderInputReceiver.cs"
+"Assets/Scripts/InputSystem/ColliderInputReciever.cs"
 "Assets/Scripts/InputSystem/DebugInputHandler.cs"
 "Assets/Scripts/InputSystem/IInputHandler.cs"
 "Assets/Scripts/InputSystem/InputReceiver.cs"

@@ -8,7 +8,7 @@ using UnityEngine;
 [RequireComponent(typeof(IObjectTweener))]
 public abstract class Piece : MonoBehaviour
 {
-    private MaterialSetter materialSetter;
+    [SerializeField] private MaterialSetter materialSetter;
     public Board board { protected get; set; }
     public Vector2Int occupiedSquare { get; set; }
     public TeamColor team { get; set; }
@@ -44,7 +44,10 @@ public abstract class Piece : MonoBehaviour
 
     public virtual void MovePiece(Vector2Int coords)
     {
-
+        Vector3 targetPosition = board.CalculatePositionFromCoords(coords);
+        occupiedSquare = coords;
+        hasMoved = true;
+        tweener.MoveTo(transform, targetPosition);
     }
 
 

@@ -48,7 +48,7 @@
      <Compile Include="Assets/Scripts/InputSystem/UIInputHandler.cs" />
      <Compile Include="Assets/Scripts/InputSystem/IInputHandler.cs" />
      <Compile Include="Assets/Scripts/ChessPieces/Queen.cs" />
-     <Compile Include="Assets/Scripts/InputSystem/ColliderInputReceiver.cs" />
+     <Compile Include="Assets/Scripts/InputSystem/ColliderInputReciever.cs" />
      <Compile Include="Assets/Scripts/ChessPieces/Bishop.cs" />
      <Compile Include="Assets/Scripts/MaterialSetter.cs" />
      <Compile Include="Assets/Scripts/Piece.cs" />
